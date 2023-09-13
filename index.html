@@ -1,0 +1,27 @@
+<body>
+    <main></main>
+</body>
+
+<script>
+    async function getContent() {
+        try {
+            const response = await fetch('http://localhost:456/')
+            const data = await response.json()
+            show(data)
+        } catch (error) {
+            alert('Falha na conexão')
+        }
+    }
+
+    getContent() 
+
+    function show(users){
+        let output = ''
+
+        for( let user of users){
+            output += `<li>${user.name}</li>`
+        }
+        document.querySelector('main').innerHTML = output
+    }    
+
+</script>
